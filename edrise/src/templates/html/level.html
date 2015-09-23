@@ -1,0 +1,11 @@
+<div id="level-wrapper" ng-controller="LevelController as ctrl">
+    <div id="toggle">
+        Toggle
+    </div>
+    <div id="editor">
+    </div>
+    <div id="level-world">
+        <canvas id="level-canvas"></canvas>
+    </div>
+    <button id="level-run" ng-click="ctrl.run()">{{ctrl.levelRunning ? 'Stop' : 'Start'}}</button>
+</div>

@@ -1,0 +1,88 @@
+html, body{
+    /*background-size: 100% 100%;*/
+    background-size: 100% ;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+#enter{
+    height: 25px;
+    width: 100%;
+}
+#enter-button{
+    float:right;
+    width: 70px;
+    height: 100%;
+
+}
+#logo-wrapper{
+    text-align: center;
+    margin-top: 1.5%;
+}
+#letter{
+    padding: 10px 30px;
+    height: 365px;
+    width: 740px;
+    margin: 0 auto;
+    margin-top: 1.5%;
+}
+input{
+    width: 200px;
+}
+#age{
+    width: 100px;
+}
+#login{
+    width: 150px;
+}
+#button-wrapper{
+    margin: 0 auto;
+    margin-top: 1%;
+    width: 800px;
+}
+#button{
+    margin: 0 auto;
+    width: 800px;
+    height: 65px;
+    padding: 0;
+}
+#opacity{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+#error{
+    display: none;
+    position: absolute;
+    width: 300px;
+    height: 190px;
+    top:40%;
+    left: 40%;
+}
+#error-button{
+    width: 70px;
+    height: 30px;
+}
+#thanks{
+    display: none;
+    position: absolute;
+    padding-top: 10px ;
+    width: 300px;
+    height: 190px;
+    top:40%;
+    left: 40%;
+}
+#thanks-button{
+    margin-top: 10px;
+    width: 70px;
+    height: 30px;
+}
+form {
+    width: 100%;
+    height: 100%;
+    display: inline;
+}

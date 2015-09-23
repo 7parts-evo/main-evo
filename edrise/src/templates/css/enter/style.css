@@ -1,0 +1,33 @@
+body{
+    background-image: url("../../img/background.svg");
+}
+#form{
+    background-color: #33cccc;
+    font-family: "MyriadProRegular";
+    line-height: 2;
+    font-size: 0.8em;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+input{
+    font-family: "MyriadProRegular";
+    text-align: center;
+    font-size: 1.1em;
+    border: solid 0;
+}
+button{
+    text-align: center;
+    font-family: "MyriadProRegular";
+    font-size: 1em;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    color: white;
+    background-color: #45DDDD;
+}
+button:hover{
+    background-color: #88F2EF;
+}
+button:active{
+    background-color: #339999;
+}

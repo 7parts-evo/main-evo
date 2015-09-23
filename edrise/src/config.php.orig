@@ -1,0 +1,20 @@
+<?php
+
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASSWORD', '');
+define('DB_NAME', 'edrise');
+
+define('GAME_HOST', 'localhost:8888');
+
+require_once 'helpers/utils.php';
+require_once 'helpers/db.php';
+
+require_once 'libs/router.php';
+require_once 'libs/user.php';
+require_once 'libs/request.php';
+require_once 'libs/player.php';
+
+DB::connect();
+
+session_start();

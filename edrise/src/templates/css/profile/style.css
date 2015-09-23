@@ -1,0 +1,259 @@
+
+body{
+    background-image: url("../../img/background.svg");
+
+}
+
+#enter{
+    background-color: #AFAFAF;
+    z-index: 10;
+}
+
+#upper_menu{
+    background-color: whitesmoke;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+#title{
+    font-family: "MyriadProRegular";
+    font-size: 1em;
+    color: blueviolet;
+    font-weight: bolder;
+    font-stretch: condensed;
+    text-shadow: #AFAFAF 1px 1px;
+}
+
+
+#settings_button {
+    background-image: url("../../img/settings_button.svg");
+}
+
+#log_out_button{
+    background-image: url("../../img/log_out_button.svg");
+}
+
+
+#log_out_button:hover{
+background-color: #999999;
+}
+
+#log_out_button:active{
+background-color: #5B5B5B;
+}
+
+
+#settings_button:hover{
+    background-color: #999999;
+}
+
+#settings_button:active{
+    background-color: #5B5B5B;
+}
+
+#information{
+    background-color: #33cccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+
+#hero_choice{
+    background-color: whitesmoke;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+#hero_picture{
+    background-size: 95%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#hero_settings{
+    background-color: whitesmoke;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+#lab_button{
+    background-color: #33cccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    text-align: center;
+    font-family: "MyriadProRegular";
+    font-size: 1em;
+    color: white;
+    border: 0;
+    background-color: #33cccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    cursor: pointer;
+    outline: none;
+
+}
+
+#lab_button:hover{
+    background-color: #45DDDD;
+}
+#lab_button:active{
+    background-color: #339999;
+}
+
+#hero_level{
+    font-family: "MyriadProRegular";
+    font-size: 1em;
+}
+
+
+.line{
+    background-color: aliceblue;
+    opacity: 0.5;
+}
+
+
+.square_button{
+    background-color: whitesmoke;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+
+.label{
+    font-family: "MyriadProRegular";
+    font-size: 1em;
+}
+
+#floppy{
+    background-image: url("../../img/floppy.svg");
+}
+
+#book{
+    background-image: url("../../img/book.svg");
+}
+
+#cup{
+    background-image: url("../../img/cup.svg");
+}
+
+.square_button:hover{
+    background-color: white;
+}
+
+.square_button:active{
+    background-color: #E8E8E8;
+}
+
+.heading{
+    font-family: "MyriadProRegular";
+    font-size: 1em;
+    color: white;
+}
+
+#scrolling_arrow_up{
+    background-image: url("../../img/arrow_up.svg");
+    background-position: center;
+    background-size: 30%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+#scrolling_arrow_down{
+    background-image: url("../../img/arrow_down.svg");
+    background-position: center;
+    background-size: 30%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+#scrolling_arrow_up:hover{
+    background-image: url("../../img/arrow_up_hover.svg");
+}
+
+#scrolling_arrow_up:active{
+    background-image: url("../../img/arrow_up_selected.svg");
+}
+
+#scrolling_arrow_down:hover{
+    background-image: url("../../img/arrow_down_hover.svg");
+}
+
+#scrolling_arrow_down:active{
+    background-image: url("../../img/arrow_down_selected.svg");
+}
+
+.hero_item{
+    opacity: 0.5;
+    cursor: pointer;
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero_item:hover{
+    opacity: 1;
+}
+
+.hero_item:active{
+    opacity: 1;
+}
+
+.hero_item.selected{
+    opacity: 1;
+}
+
+#ameba_line{
+    background-color: black;
+    width: 100%;
+    margin-top: 25%;
+}
+
+.button_pic{
+    background-image: url("../../img/cup.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70%;
+}
+
+#colors_list{
+    padding-top: 20px;
+}
+
+#settings_menu{
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    font-family: "MyriadProRegular";
+
+}
+
+#settings_list{
+    list-style-type: none;
+}
+
+.bold{
+    color: #339999;
+}
+
+#accept_button{
+    background-color: #33cccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    text-align: center;
+    font-family: "MyriadProRegular";
+    font-size: 0.8em;
+    color: white;
+    border: 0;
+    background-color: #33cccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    cursor: pointer;
+    outline: none;
+
+}
+
+#accept_button:hover{
+    background-color: #45DDDD;
+}
+#accept_button:active{
+    background-color: #339999;
+}

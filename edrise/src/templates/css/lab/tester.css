@@ -1,0 +1,42 @@
+#tester-wrapper {
+    width: 100%;
+    height: 100%;
+}
+#editor {
+    position: absolute;
+    width: 55%;
+    height: 93%;
+    background-color: skyblue;
+    float: left;
+}
+#tester-world {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 45%;
+    height: 100%;
+    background-color: green;
+}
+#tester-canvas {
+    background-color: lightskyblue;
+}
+#toggle {
+    width: 55%;
+    height: 25px;
+    cursor: pointer;
+    background-color: #DDD;
+    text-align: center;
+}
+#tester-run {
+    position: absolute;
+    bottom: 5px;
+    width: 20%;
+    left: 5%;
+}
+
+#tester-play {
+    position: absolute;
+    bottom: 5px;
+    width: 20%;
+    left: 30%;
+}

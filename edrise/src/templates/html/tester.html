@@ -1,0 +1,13 @@
+<div id="tester-wrapper" ng-controller="TesterController as ctrl">
+    <div id="toggle">
+        Toggle
+    </div>
+    <div id="editor">
+    </div>
+    <div id="tester-world">
+        <canvas id="tester-canvas"></canvas>
+    </div>
+    <button id="tester-run" ng-click="ctrl.run()">{{ctrl.testerRunning ? 'Stop' : 'Start'}}</button>
+    <button id="tester-play" ng-click="ctrl.play()">Play</button>
+
+</div>

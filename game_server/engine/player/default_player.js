@@ -1,0 +1,21 @@
+module.exports = {
+    position: [0, 0],
+    size: 10,
+    max_size: 100,
+    min_size: 1,
+    radius: 10,
+    speed: 4,
+    accelerate_factor: 0.1,
+    angle_delta: 10,
+    max_speed: 20,
+    min_speed: 0,
+    speed_rate: 10,
+    direction: 0,
+    radius_factor: 1.5,
+    disabled: false,
+    around: [],
+    random: false,
+    //suicide_time: 500,
+    blows_factor: 0.0001,
+    suicide_factor: 0.1
+};

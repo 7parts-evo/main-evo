@@ -1,0 +1,28 @@
+FOOD:
+	get id
+	get json
+	get type -> 'food'
+	
+	accelerate
+	angle_delta
+	direction
+	disabled
+	max_speed
+	min_speed
+	position
+	radius
+	random
+	size
+	speed
+	speed_rate
+	world
+	
+	remove() -- удаляет юнита из мира, вызывает событие 'remove'
+	
+	on(eventType, listener) -> listener_id
+	off(listener)
+	off(listener_id)
+	trigger(eventType, data)
+	
+	EVENTS:
+		remove -- вызывается при удалении

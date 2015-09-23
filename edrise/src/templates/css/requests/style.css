@@ -1,0 +1,21 @@
+tr.unsorted {
+    background-color: darkgray;
+}
+tr.accepted {
+    background-color: greenyellow;
+}
+tr.declined {
+    background-color: indianred;
+}
+tr.accepted button {
+    display: none;
+}
+tr.declined button {
+    display: none;
+}
+tr.accepted input {
+    display: none;
+}
+tr.declined input {
+    display: none;
+}

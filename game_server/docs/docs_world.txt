@@ -1,0 +1,52 @@
+WORLD:
+	private scope:
+		frameCounter
+		tickCounter
+		timer
+		unitCounter
+		units
+		
+	get json
+	get preferences
+	get running
+	get tick
+	get units
+	
+	cyclic
+	debug
+	delay
+	food
+	height
+	nUnits
+	player
+	tickLength
+	wall
+	width
+	
+	make_food(opts)
+	make_player(opts)
+	make_wall(opts)
+	
+	clear()
+	remove(unit)
+	start()
+	stop()
+	
+	frame(world, scope)
+	init(world, scope)
+	tick(world, scope)
+	
+	on(eventType, listener) -> listener_id
+	off(listener)
+	off(listener_id)
+	trigger(eventType, data)
+	
+	EVENTS:
+		frame :: json -- вызывается перед выполнением нового фрейма, но параметр frameCounter уже увеличен (json - json-объект мира)
+		'remove-unit' :: unit -- вызывается при удалении юнита из мира
+		tick -- вызывается перед выполнением нового тика, но параметр tickCounter уже увеличен
+
+LOGIC:
+	framer(world, scope) -- запускает функцию-поведение мира при фрейме, взятую из preferences.frame
+	initiator(world, scope) -- запускает функцию-поведение мира при инициализации, взятую из preferences.init
+	ticker(world, scope) -- запускает функцию-поведение мира при тике, взятую из preferences.tick

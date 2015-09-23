@@ -1,0 +1,74 @@
+PLAYER:
+	get id
+	get json
+	get type -> 'player'
+	
+	get accelerate
+	get radius
+	get size
+	get tick
+	
+	get move() -- запускает стратегию
+	set move <- code -- если вызвать player.move = 'self.direction = 4;' строковый аргумент превратится в функцию
+	
+	accelerate_factor
+	angle_delta
+	around
+	blows_factor
+	direction
+	disabled
+	max_size
+	max_speed
+	min_size
+	min_speed
+	position
+	radius
+	radius_factor
+	random
+	size
+	speed
+	speed_rate
+	suicide_factor
+	world
+	
+	kick(reason) -- удаляет юнита из мира, вызывая помимо стандартного события 'remove' событие reason
+	remove() -- удаляет юнита из мира, вызывает событие 'remove'
+	suicide() -- запускает режим суицида, blows_factor переводится в значение suicide_factor
+	
+	on(eventType, listener) -> listener_id
+	off(listener)
+	off(listener_id)
+	trigger(eventType, data)
+	
+	EVENTS:
+		crash -- вызывается при удалении из мира юнита, когда стратегии падает (ошибка времени выполнения или присваивание полю direction нечислового значения)
+		eaten -- вызывается при удалении из мира юнита, когда другой юнит съедает этого
+		die -- вызывается при удалении из мира юнита, когда размер становится меньше, чем min_size и выключен режим суицида
+		fat -- вызывается при удалении из мира юнита, когда размер становится больше, чем max_size
+		remove -- вызывается при удалении
+		suicide -- вызывается при удалении из мира юнита, когда размер становится меньше, чем min_size и включен режим суицида
+		timeout -- вызывается при удалении из мира юнита, когда при наступлении следующего фрейма стратегия ещё не закончила своего выполнения
+
+RUNNER:
+    run(scope) -- выполнить функцию, получившуюся в результате компилирования code, передав ей в аргумент json-объект scope
+	set code -- сохранить код функции, которую надо будет вызывать при вызове метода run
+	terminate() -- прекратить текущее выполнение функции
+
+	on(eventType, listener) -> listener_id
+	off(listener)
+	off(listener_id)
+	trigger(eventType, data)
+
+	EVENTS:
+		error :: error_message -- вызывается если во время выолнения метода run возникла ошибка
+		finish :: scope -- вызывается при окончании выполнения метода run
+		log :: message
+		start :: scope -- вызывается при начале выполнения метода run
+
+MOVE_WORKER:
+	private emit(eventType, data)
+	private handlers:
+		code
+		run
+	private isolator()
+	private move()

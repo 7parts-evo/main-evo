@@ -1,0 +1,64 @@
+#yellow{
+    background-image: url("../../img/colors/yellow.svg");
+}
+
+#blue{
+    background-image: url("../../img/colors/blue.svg");
+}
+
+#green{
+    background-image: url("../../img/colors/green.svg");
+}
+
+#green2{
+    background-image: url("../../img/colors/green2.svg");
+}
+
+#violet{
+    background-image: url("../../img/colors/violet.svg");
+}
+
+#red{
+    background-image: url("../../img/colors/red.svg");
+}
+
+.color_item{
+    opacity: 0.5;
+    cursor: pointer;
+    background-size: 180%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.color_item:hover, .color_item.selected{
+    opacity: 1;
+}
+
+
+#yellow:active, #yellow.selected{
+    background-image: url("../../img/colors/yellow_selected.svg");
+}
+
+#blue:active, #blue.selected{
+    background-image: url("../../img/colors/blue_selected.svg");
+}
+
+#green:active, #green.selected{
+    background-image: url("../../img/colors/green_selected.svg");
+}
+
+
+#green2:active, #green2.selected{
+    background-image: url("../../img/colors/green2_selected.svg");
+}
+
+
+#violet:active, #violet.selected{
+    background-image: url("../../img/colors/violet_selected.svg");
+}
+
+#red:active, #red.selected{
+    background-image: url("../../img/colors/red_selected.svg");
+}
+

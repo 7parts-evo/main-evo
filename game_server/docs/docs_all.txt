@@ -1,0 +1,239 @@
+FOOD:
+	get id
+	get json
+	get type -> 'food'
+	
+	accelerate
+	angle_delta
+	direction
+	disabled
+	max_speed
+	min_speed
+	position
+	radius
+	random
+	size
+	speed
+	speed_rate
+	world
+	
+	remove() -- удаляет юнита из мира, вызывает событие 'remove'
+	
+	on(eventType, listener) -> listener_id
+	off(listener)
+	off(listener_id)
+	trigger(eventType, data)
+	
+	EVENTS:
+		remove -- вызывается при удалении
+	
+PLAYER:
+	get id
+	get json
+	get type -> 'player'
+	
+	get accelerate
+	get radius
+	get size
+	get tick
+	
+	get move() -- запускает стратегию
+	set move <- code -- если вызвать player.move = 'self.direction = 4;' строковый аргумент превратится в функцию
+	
+	accelerate_factor
+	angle_delta
+	around
+	blows_factor
+	direction
+	disabled
+	max_size
+	max_speed
+	min_size
+	min_speed
+	position
+	radius
+	radius_factor
+	random
+	size
+	speed
+	speed_rate
+	suicide_factor
+	world
+	
+	kick(reason) -- удаляет юнита из мира, вызывая помимо стандартного события 'remove' событие reason
+	remove() -- удаляет юнита из мира, вызывает событие 'remove'
+	suicide() -- запускает режим суицида, blows_factor переводится в значение suicide_factor
+	
+	on(eventType, listener) -> listener_id
+	off(listener)
+	off(listener_id)
+	trigger(eventType, data)
+	
+	EVENTS:
+		crash -- вызывается при удалении из мира юнита, когда стратегии падает (ошибка времени выполнения или присваивание полю direction нечислового значения)
+		eaten -- вызывается при удалении из мира юнита, когда другой юнит съедает этого
+		die -- вызывается при удалении из мира юнита, когда размер становится меньше, чем min_size и выключен режим суицида
+		fat -- вызывается при удалении из мира юнита, когда размер становится больше, чем max_size
+		remove -- вызывается при удалении
+		suicide -- вызывается при удалении из мира юнита, когда размер становится меньше, чем min_size и включен режим суицида
+		timeout -- вызывается при удалении из мира юнита, когда при наступлении следующего фрейма стратегия ещё не закончила своего выполнения
+		
+RUNNER:
+    run(scope) -- выполнить функцию, получившуюся в результате компилирования code, передав ей в аргумент json-объект scope
+	set code -- сохранить код функции, которую надо будет вызывать при вызове метода run
+	terminate() -- прекратить текущее выполнение функции
+	
+	on(eventType, listener) -> listener_id
+	off(listener)
+	off(listener_id)
+	trigger(eventType, data)
+	
+	EVENTS:
+		error :: error_message -- вызывается если во время выолнения метода run возникла ошибка
+		finish :: scope -- вызывается при окончании выполнения метода run
+		log :: message
+		start :: scope -- вызывается при начале выполнения метода run
+		
+MOVE_WORKER:
+	private emit(eventType, data)
+	private handlers:
+		code
+		run
+	private isolator()
+	private move()
+
+WORLD:
+	private scope:
+		frameCounter
+		tickCounter
+		timer
+		unitCounter
+		units
+		
+	get json
+	get preferences
+	get running
+	get tick
+	get units
+	
+	cyclic
+	debug
+	delay
+	food
+	height
+	nUnits
+	player
+	tickLength
+	wall
+	width
+	
+	make_food(opts)
+	make_player(opts)
+	make_wall(opts)
+	
+	clear()
+	remove(unit)
+	start()
+	stop()
+	
+	frame(world, scope)
+	init(world, scope)
+	tick(world, scope)
+	
+	on(eventType, listener) -> listener_id
+	off(listener)
+	off(listener_id)
+	trigger(eventType, data)
+	
+	EVENTS:
+		frame :: json -- вызывается перед выполнением нового фрейма, но параметр frameCounter уже увеличен (json - json-объект мира)
+		'remove-unit' :: unit -- вызывается при удалении юнита из мира
+		tick -- вызывается перед выполнением нового тика, но параметр tickCounter уже увеличен
+
+LOGIC:
+	framer(world, scope) -- запускает функцию-поведение мира при фрейме, взятую из preferences.frame
+	initiator(world, scope) -- запускает функцию-поведение мира при инициализации, взятую из preferences.init
+	ticker(world, scope) -- запускает функцию-поведение мира при тике, взятую из preferences.tick
+	
+DB:
+	select_user_by_secret(secret)
+
+CONNECTIONS:
+	add_rule(rule) -- добавить правило в список всех правил
+	bind_socket(socket) -- привязать на сокет все имеющиеся правила
+	remove_rule(rule) -- удалить правило из списка всех правил
+
+AUTH_RULE:
+	name
+	
+	private make_user(db_data):
+		add_emit(emit) -- добавить эмиттер (эмиттер умеет отсылать соответствующему ей сокету сообщения emit(eventType, data))
+		emit(eventType, data) -- отослать сообщения по всем имеющимся эмиттерам
+		remove_emit(emit) -- удалить эмиттер
+		{{ db_data }}
+	private users -- массив всех аутентифицировавшихся юзеров
+	
+	disconnect(storage, emit) -- поведение при событие disconnect (удалить у соответствующего юзера соответствующий эмиттер)
+	login(storage, emit, data) -- поведение при событие login (найти по secret соответствующего юзера в users, добавить этому user новый эмиттер и сохранить user в storage)
+
+PLAY_RULE:
+	private world -- общий глобальный мир, в котором будут играть все юзеры
+	
+	ai(storage, emit, data) -- поведение при событие ai (сохранить игроку ИИ)
+	play(storage, emit) -- поведение при событие play (выпустить юзера в игру и создать ему игрока)
+	suicide(storage) -- поведение при событие suicide (перевести игрока в режим суицида)
+	
+TESTER_RULE:
+	name
+	
+	ai(storage, emit, data) -- поведение при событие ai (сохранить игроку ИИ)
+	init(storage, emit) -- поведение при событие init (создать тестовый мир)
+	'tester-switch'(storage) -- поведение при событие tester-switch (включить/выключить тестовый мир)
+	
+UTILS:
+	events_mixin(obj) -- наделяет obj интерфейсом событийной системы
+	make_point()
+	random_int(min, max)
+	random_point(size)
+	
+POINT:
+	make_point(x)
+	make_point(x, y)
+	make_point([x, y])
+	make_point([x])
+	make_point({x, y})
+	make_point({width, height})
+	make_point({angle})
+	make_point()
+		add(point)
+		angle
+		clone()
+		cross(point)
+		divide(point)
+		dot(point)
+		equals(point)
+		getAngle()
+		getAngleInRadians()
+		getDistance(point)
+		getLength()
+		getQuadrant()
+		isClose(point, tolerance)
+		isColinear(point)
+		isInside(rect)
+		isNaN()
+		isOrthogonal(point)
+		isZero()
+		length
+		modulo(point)
+		multiply(point)
+		negate(point)
+		normalize(length)
+		project(point)
+		rotate(angle, center)
+		set(x, y)
+		setAngle(angle)
+		setAngleInRadians(angle)
+		setLength(length)
+		subtract(point)
+		toString()
+		transform(matrix)

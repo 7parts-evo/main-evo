@@ -1,0 +1,31 @@
+CONNECTIONS:
+	add_rule(rule) -- добавить правило в список всех правил
+	bind_socket(socket) -- привязать на сокет все имеющиеся правила
+	remove_rule(rule) -- удалить правило из списка всех правил
+
+AUTH_RULE:
+	name
+	
+	private make_user(db_data):
+		add_emit(emit) -- добавить эмиттер (эмиттер умеет отсылать соответствующему ей сокету сообщения emit(eventType, data))
+		emit(eventType, data) -- отослать сообщения по всем имеющимся эмиттерам
+		remove_emit(emit) -- удалить эмиттер
+		{{ db_data }}
+	private users -- массив всех аутентифицировавшихся юзеров
+	
+	disconnect(storage, emit) -- поведение при событие disconnect (удалить у соответствующего юзера соответствующий эмиттер)
+	login(storage, emit, data) -- поведение при событие login (найти по secret соответствующего юзера в users, добавить этому user новый эмиттер и сохранить user в storage)
+
+PLAY_RULE:
+	private world -- общий глобальный мир, в котором будут играть все юзеры
+	
+	ai(storage, emit, data) -- поведение при событие ai (сохранить игроку ИИ)
+	play(storage, emit) -- поведение при событие play (выпустить юзера в игру и создать ему игрока)
+	suicide(storage) -- поведение при событие suicide (перевести игрока в режим суицида)
+	
+TESTER_RULE:
+	name
+	
+	ai(storage, emit, data) -- поведение при событие ai (сохранить игроку ИИ)
+	init(storage, emit) -- поведение при событие init (создать тестовый мир)
+	'tester-switch'(storage) -- поведение при событие tester-switch (включить/выключить тестовый мир)

@@ -1,0 +1,93 @@
+
+#settings_menu{
+    position: fixed;
+    height: 540px;
+    width: 550px;
+    left: 30%;
+    top: 18%;
+    z-index: 1000;
+    padding: 20px;
+    /*font-size: 1.2em;*/
+    display: none;
+}
+
+#settings_list li{
+    margin: 15px;
+}
+
+#settings_list {
+    margin-bottom: 32px;
+}
+
+.hidden{
+    display: none;
+}
+
+.link_title{
+    color: orange;
+    display: block;       /*сменить на none если .hidden display:block*/
+}
+
+#accept_button{
+    position: relative;
+    width: 200px;
+    height: 50px;
+    margin-left: 30%;
+}
+
+#cross_button{
+    float: right;
+    height: 20px;
+    width: 20px;
+    background-image: url("../img/close.svg") ;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+#cross_button:hover{
+    background-image: url("../img/close_hover.svg") ;
+}
+
+#cross_button:active{
+    background-image: url("../img/close_active.svg") ;
+}
+
+#settings_menu{
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+}
+
+#settings_list{
+    list-style-type: none;
+}
+
+.bold{
+    color: #339999;
+}
+
+#accept_button{
+    position: relative;
+    background-color: #33cccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    text-align: center;
+    font-family: "MyriadProRegular";
+    font-size: 0.8em;
+    color: white;
+    border: 0;
+    background-color: #33cccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    cursor: pointer;
+    outline: none;
+
+}
+
+#accept_button:hover{
+    background-color: #45DDDD;
+}
+#accept_button:active{
+    background-color: #339999;
+}
